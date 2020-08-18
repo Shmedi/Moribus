@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from "./firebase";
+import ReviewForm from "./ReviewForm";
 import axios from "axios";
 
 class App extends Component {
@@ -37,14 +37,14 @@ class App extends Component {
     this.setState({
       itemSearch: event.target.value,
     });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   handleClick = (event) => {
     event.preventDefault();
 
     const filteredData = this.state.makeupItems.filter((items) => {
-      return items.product_type == this.state.itemSearch;
+      return items.product_type === this.state.itemSearch;
     });
     this.setState({
       filteredMakeupItems: filteredData,
@@ -53,6 +53,7 @@ class App extends Component {
 
   render() {
     console.log("Rendering...");
+    console.log(this.state.makeupItems);
     return (
       <div className="App">
         <h1>Moribus</h1>
@@ -82,6 +83,7 @@ class App extends Component {
             </div>
           );
         })}
+        <ReviewForm />
       </div>
     );
   }
