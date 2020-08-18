@@ -82,7 +82,7 @@ console.log("filtered makeup", this.state.filteredMakeupItems)
                     {/* <p>{product.price_sign} {product.price} {product.currency}</p>
                     <p>{product.product_link}</p>
                     <p>{product.description}</p> */}
-                <Link to={`/MakeupDetails/${product.id}`}>
+                <Link to={`/makeupDetails/${product.id}`}>
                   <img src={product.image_link} alt={`${product.name}`} />
                 </Link>
                     {/* <p>{product.product_type}</p> */}

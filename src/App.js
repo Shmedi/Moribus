@@ -64,9 +64,8 @@ class App extends Component {
             <h1>Moribus</h1>
           </header>
 
-          <Catalogue />
-          <Route exact path="/catalogue" component={ Catalogue } />
-          <Route path="/MakeupDetails/:makeupId" component={ MakeupDetails } /> 
+          <Route exact path="/" component={ Catalogue } />
+          <Route exact path="/MakeupDetails/:makeupId" component={ MakeupDetails } /> 
 
         </div>
       </Router> 

@@ -10,16 +10,11 @@ class MakeupDetails extends Component {
   }
 
   componentDidMount() {
-    console.log("Mounted");
-
+    const {makeupId} = this.props.match.params
+    console.log(makeupId)
     axios({
-      url: `http://makeup-api.herokuapp.com/api/v1/makeupItem/${this.props.match.params.makeupId}`,
-      method: "GET",
-      dataType: "json",
-      params: {
-        product_tags: "Vegan",
-        product_type: this.state.itemSearch,
-      },
+      url: `http://makeup-api.herokuapp.com/api/v1/products/${makeupId}.json`,
+      method: "GET"
     }).then((res) => {
       console.log(res.data)
       this.setState({
