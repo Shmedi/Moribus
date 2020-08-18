@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import MakeupDetails from "./MakeupDetails";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Catalogue extends Component {
   constructor() {
@@ -54,7 +56,7 @@ class Catalogue extends Component {
   };
 
   render() {
-    // console.log("filtered makeup", this.state.filteredMakeupItems);
+    console.log("filtered makeup", this.state.filteredMakeupItems);
     return (
       <div className="allItems">
         <form action="">
@@ -67,6 +69,7 @@ class Catalogue extends Component {
             value={this.state.itemSearch}
           />
           <br />
+
           <button onClick={this.handleClick}>Search</button>
         </form>
         {this.state.makeupItems.map((product) => {
@@ -77,11 +80,17 @@ class Catalogue extends Component {
                   <div>
                     <h2>{product.name}</h2>
                     {/* <p>{product.price_sign} {product.price} {product.currency}</p>
-                    <p>{product.product_link}</p>
-                    <p>{product.description}</p> */}
+                  <p>{product.product_link}</p>
+                  <p>{product.description}</p> */}
                     <Link to={`/makeupDetails/${product.id}`}>
                       <img src={product.image_link} alt={`${product.name}`} />
                     </Link>
+                    <Route exact path="/Catalogue" component={Catalogue} />
+                    {/* backToCatalogue={() => this.backToCatalogue()} */}
+                    {/* {this.state.back 
+                  ? <MakeupDetails backButton={ () => this.backButton() }/> 
+                  : <Catalogue backButton={ () => this.backButton() }/> 
+                } */}
                     {/* <p>{product.product_type}</p> */}
                     {/* <p>{product.tag_list[0]}</p> */}
                   </div>
