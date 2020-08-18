@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import DemoCarousel from "./Carousel";
+import NavBar from "./NavBar";
+import Shop from "./Shop";
 import firebase from "./firebase";
 import axios from "axios";
 import Catalogue from './Catalogue';
@@ -9,14 +12,18 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
-    console.log("Rendering...");
     return (
       <Router>
         <div className="App">
-          
-          <header>
-            <h1>Moribus</h1>
+        <header>
+            <NavBar />
+            <Route path="/#" component={NavBar} />
+            
           </header>
+          <DemoCarousel />
+          <Route path="/shop" component={Shop} />
+
+
 
           <Route exact path="/" component={ Catalogue } />
           <Route exact path="/MakeupDetails/:makeupId" component={ MakeupDetails } /> 

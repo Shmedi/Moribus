@@ -1,8 +1,38 @@
 $bodyFont: "Hind Siliguri", sans-serif;
 $headerFont: "Cormorant", serif;
 
-$color1: rgb(76, 211, 170), #4cd3aa;
-$color2: rgb(204, 153, 117), #cc9975;
-$color3: rgb(202, 223, 212), #cadfd4;
+$color1: rgb(76, 211, 170);
+$color2: rgb(204, 153, 117);
+$color3: rgba(210, 228, 219, 0.801);
+$color4: #0360ca;
+$color5: rgb(36, 35, 35);
+$color6: rgb(105, 80, 62);
+$color7: rgb(251, 242, 235);
+
+h1, 
+h2, 
+h3,
+h4,
+h5,
+h6{
+    font-family: $headerFont;
+}
+
+p, 
+button,
+.button,
+a,
+Link {
+    font-family: $bodyFont;
+    font-size: 2rem;
+    color: $color5;
+}
+
+h2 {
+    color: $color6;
+    text-shadow: 2px 2px 2px $color1;
+    font-size: 3rem;
+}
+
 
 
