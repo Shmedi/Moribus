@@ -53,10 +53,11 @@ class Shop extends Component {
     this.setState({
       filteredMakeupItems: filteredData,
     });
+    console.log('filteredMakeupItems', filteredData)
   };
 
   render() {
-    console.log("Rendering...");
+    
     return (
       <div className="shopSearch">
 

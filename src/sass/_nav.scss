@@ -1,3 +1,9 @@
+header {
+    background-color: $color3;
+    border: 2px solid $color2;
+    box-shadow: 4px 4px 4px #aaa;
+}
+
 .navbar {
     margin: 5rem auto;
 }
@@ -5,6 +11,7 @@
 .headerNav,
 .navbar {
     display: flex;
+    padding: 2.5% 5%;
 }
 
 .navbar ul {
