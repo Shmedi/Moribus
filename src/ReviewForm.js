@@ -3,8 +3,8 @@ import firebase from "./firebase";
 import ReviewData from "./ReviewData";
 
 class ReviewForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       reviews: [],
       name: "",
@@ -20,17 +20,9 @@ class ReviewForm extends Component {
 
       const userReview = [];
 
-      // for (let itemId in firebaseData) {
-      //   const reviewObject = {
-      //     name: firebaseData[itemId].name,
-      //     userValue: firebaseData[itemId].comment,
-      //   };
-      //   userReview.push(reviewObject);
-      // }
-
       for (const review in firebaseData) {
         userReview.push({
-          id: this.props.product,
+          id: firebaseData[review].id,
           name: firebaseData[review].name,
           value: firebaseData[review].comment,
         });
@@ -52,10 +44,11 @@ class ReviewForm extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-
+    console.log(this.props);
     const dbRef = firebase.database().ref();
 
     dbRef.push({
+      id: this.props.itemId,
       name: this.state.name,
       comment: this.state.comment,
     });
@@ -98,7 +91,10 @@ class ReviewForm extends Component {
           <button onClick={this.handleClick}>Submit</button>
         </form>
 
-        <ReviewData comments={this.state.reviews} />
+        <ReviewData
+          comments={this.state.reviews}
+          productId={this.props.itemId}
+        />
       </>
     );
   }
