@@ -30,37 +30,71 @@
 .gridProducts {
     display: flex;
     margin: 2rem;
+    background-color: $color7;
 }
 
 .productsFound {
-    width: 25%;
+    width: 100%;
     display: grid;
+    grid-template-columns: 30% 70%;
     border: 2px solid $color2;
     box-shadow: 4px 4px 4px #aaa;
-    grid-template-rows: 15% 5% 75% 5%;
     grid-gap: 2rem;
     text-align: left;
     padding: 2rem;
 }
+
+.column1,
+.column2 {
+    display: grid;
+    padding: 2%;
+}
 .productsFound img,
 .productsFound h2,
-.productsFound .productPrice{
-    grid-column: 1/-1;
+.productPrice{
+    grid-column: 1/2;
     padding: 1rem;
 }
 .productsFound img {
     width: 100%;
     grid-row: 3/4;
+    border: 2px solid $color2;
+    box-shadow: 4px 4px 4px #aaa;
 }
 .productsFound h2 {
     grid-row: 1/2;
 }
-.productsFound .productPrice {
+.productPrice {
     grid-row: 2/3;
 }
-.producsFound .linkToDetails {
+
+.productLink,
+.productDescription,
+.productType,
+.productTag {
+    grid-column: 2/3;
+}
+.productLink {
+    grid-row: 1/2;
+    margin-top: 10rem;
+}
+.productDescription {
+    grid-row: 2/3;
+    padding-right: 2%;
+}
+.productType {
     grid-row: 3/4;
 }
-
+.productTag {
+    grid-row: 4/5;
+}
+.productLink a{
+    color: blue;
+}
+.productLink a:hover,
+.productLink a:active,
+.productLink a:focus {
+    text-decoration: underline;
+}
 
 

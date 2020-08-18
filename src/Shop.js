@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import ProductDetails from "./ProductDetails";
 import firebase from "./firebase";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 class Shop extends Component {
@@ -78,16 +77,18 @@ class Shop extends Component {
           return (
             <div className="gridProducts">
               <span className="productsFound" key={product.id}>
-
-
-                <Link to={`/productdetails/${product.id}`}>
+                <div className="column1">
                   <h2>{product.name}</h2>
                   <p className="productPrice">${product.price}</p>
                   <img src={product.image_link} alt={product.name} />
-                  <p className="linkToDetails">More Details</p>
-                </Link>
+                </div>
+                <div className="column2">
+                  <p className="productLink"><a href={product.product_link}>{product.product_link}</a></p>
+                  <p className="productDescription">{product.description}</p>
+                  <p className="productType">{product.product_type}</p>
+                  <p className="productTag">{product.tag_list[0]}</p>
 
-
+                </div>
 
               </span>
             </div>
