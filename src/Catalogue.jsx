@@ -56,22 +56,6 @@ class Catalogue extends Component {
     });
   };
 
-  // Get back from details to main Catalogue 
-
-  // backToCatalogue = () => {
-  //   this.setState({
-  //     filteredMakeupItems: []
-  //   })
-  // }
-  // backButton = () => {
-  //   const backButton = this.state.back
-  //   this.setState(
-  //     { back: !backButton }
-  //   )
-  // }
-
-
-
 render() {
 console.log("filtered makeup", this.state.filteredMakeupItems)
   return (
@@ -103,8 +87,6 @@ console.log("filtered makeup", this.state.filteredMakeupItems)
                   <p>{product.description}</p> */}
                   <Link to={`/makeupDetails/${product.id}`}>
                     <img src={product.image_link} alt={`${product.name}`} />
-
-
                   </Link>
                   <Route exact path="/Catalogue" component={ Catalogue } />
                     {/* backToCatalogue={() => this.backToCatalogue()} */}

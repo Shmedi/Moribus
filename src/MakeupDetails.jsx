@@ -44,7 +44,7 @@ class MakeupDetails extends Component {
           <h2>{price_sign, price, currency}</h2>
           <p>{description}</p>
         </div>
-        <Link to = {`/Catalogue/${this.state.itemSearch}`}>
+        <Link to = {"/"}>
           <button onClick={this.backButton}>Search another item</button>
         </Link>
       </div>
