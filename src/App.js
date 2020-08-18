@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import firebase from "./firebase";
-import axios from "axios";
-import Catalogue from './Catalogue';
-import MakeupDetails from './MakeupDetails';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Catalogue from "./Catalogue";
+import MakeupDetails from "./MakeupDetails";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -15,11 +13,14 @@ class App extends Component {
             <h1>Moribus</h1>
           </header>
 
-          <Route exact path="/" component={ Catalogue } />
-          <Route exact path="/MakeupDetails/:makeupId" component={ MakeupDetails } /> 
-
+          <Route exact path="/" component={Catalogue} />
+          <Route
+            exact
+            path="/MakeupDetails/:makeupId"
+            component={MakeupDetails}
+          />
         </div>
-      </Router> 
+      </Router>
     );
   }
 }
