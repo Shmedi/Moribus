@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Catalogue from './Catalogue';
 
 class MakeupDetails extends Component {
   constructor(){
@@ -26,6 +28,8 @@ class MakeupDetails extends Component {
     });
   }
 
+
+
   render() {
     const {image_link, name, price_sign, price, currency, description } = this.state.makeupItem;
     console.log(this.props)
@@ -40,6 +44,9 @@ class MakeupDetails extends Component {
           <h2>{price_sign, price, currency}</h2>
           <p>{description}</p>
         </div>
+        <Link to = {`/Catalogue/${this.state.itemSearch}`}>
+          <button onClick={this.backButton}>Search another item</button>
+        </Link>
       </div>
     )
   }
