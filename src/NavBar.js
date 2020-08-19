@@ -10,7 +10,7 @@ class NavBar extends Component {
         <nav className="navbar">
           <ul>
             <li>
-              <Link to={`/catalogue`}>Home</Link>
+              <Link to={`/`}>Home</Link>
             </li>
             <li>
               <Link to={`/`}>Wish List</Link>

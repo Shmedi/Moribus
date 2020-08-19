@@ -1,0 +1,22 @@
+.moreInfo {
+  display: flex;
+  background-color: white;
+  height: 90vh;
+  padding: 50px;
+  .image {
+    width: 40%;
+    padding-right: 30px;
+  }
+
+  .priceContainer {
+    display: flex;
+    padding: 20px 0;
+    h2 {
+      padding-right: 2px;
+    }
+  }
+
+  .description {
+    width: auto;
+  }
+}

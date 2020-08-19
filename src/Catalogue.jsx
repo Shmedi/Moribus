@@ -45,20 +45,31 @@ class Catalogue extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-
-    const filteredData = this.state.makeupItems.filter((items) => {
-      return items.product_type === this.state.itemSearch;
-    });
-    this.setState({
-      filteredMakeupItems: filteredData,
-    });
+    if (this.state.itemSearch === "") {
+      alert("Please enter a product");
+    } else {
+      const productName = this.state.itemSearch;
+      const lowercase = productName.toLowerCase();
+      const finalSearch = lowercase.replace(/\s/g, "_");
+      const filteredData = this.state.makeupItems.filter((items) => {
+        return items.product_type === finalSearch;
+      });
+      if (filteredData.length > 0) {
+        this.setState({
+          filteredMakeupItems: filteredData,
+          itemSearch: "",
+        });
+      } else {
+        alert("Product not found. Please try again");
+      }
+    }
   };
 
   render() {
     // console.log("filtered makeup", this.state.filteredMakeupItems);
     return (
       <div className="allItems wrapper">
-        <form action="">
+        <form className="shopSearch" action="">
           <label htmlFor="item">Enter in a product name</label>
           <input
             onChange={this.inputSearch}
@@ -68,35 +79,31 @@ class Catalogue extends Component {
           />
           <button onClick={this.handleClick}>Search</button>
         </form>
-        {this.state.makeupItems.map((product) => {
-          return (
-            <div key={product.id} className="makeup">
-              {this.state.filteredMakeupItems.map((product) => {
-                return (
-                  <div className="productPage">
-                    <div className="productItem">
-                      <h2>{product.name}</h2>
-                      <Link to={`/makeupDetails/${product.id}`}>
-                        <img src={product.image_link} alt={`${product.name}`} />
-                      </Link>
-                    </div>
-                    {/* <Route exact path="/Catalogue" component={Catalogue} /> */}
-                    {/* <p>{product.price_sign} {product.price} {product.currency}</p>
+        <div className="makeup">
+          {this.state.filteredMakeupItems.map((product) => {
+            return (
+              <div className="productPage">
+                <div className="productItem">
+                  <h2>{product.name}</h2>
+                  <Link to={`/makeupDetails/${product.id}`}>
+                    <img src={product.image_link} alt={`${product.name}`} />
+                  </Link>
+                </div>
+                {/* <Route exact path="/Catalogue" component={Catalogue} /> */}
+                {/* <p>{product.price_sign} {product.price} {product.currency}</p>
                   <p>{product.product_link}</p>
                   <p>{product.description}</p> */}
-                    {/* backToCatalogue={() => this.backToCatalogue()} */}
-                    {/* {this.state.back 
+                {/* backToCatalogue={() => this.backToCatalogue()} */}
+                {/* {this.state.back 
                   ? <MakeupDetails backButton={ () => this.backButton() }/> 
                   : <Catalogue backButton={ () => this.backButton() }/> 
                 } */}
-                    {/* <p>{product.product_type}</p> */}
-                    {/* <p>{product.tag_list[0]}</p> */}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+                {/* <p>{product.product_type}</p> */}
+                {/* <p>{product.tag_list[0]}</p> */}
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
