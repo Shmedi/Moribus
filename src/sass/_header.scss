@@ -1,0 +1,12 @@
+.nav {
+  background-color: $color3;
+  height: 60vh;
+}
+
+.banner {
+  text-align: center;
+  margin-top: -340px;
+  .carousel-status {
+    display: none;
+  }
+}

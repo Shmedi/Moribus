@@ -1,56 +1,114 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Catalogue from './Catalogue';
+import React, { Component } from "react";
+import axios from "axios";
+import ReviewForm from "./ReviewForm";
+import { Link } from "react-router-dom";
 
 class MakeupDetails extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      makeupItem: {}
-    }
+      makeupItem: {},
+      makeupId: 0,
+      makeupItemColours: [],
+      showColours: false
+    };
   }
 
   componentDidMount() {
-    const {makeupId} = this.props.match.params
-    console.log(makeupId)
+    const { makeupId } = this.props.match.params;
+    console.log(makeupId);
     axios({
       url: `http://makeup-api.herokuapp.com/api/v1/products/${makeupId}.json`,
-      method: "GET"
+      method: "GET",
     }).then((res) => {
-      console.log(res.data)
+      console.log(res.data);
       this.setState({
         makeupItem: res.data,
+        makeupId: makeupId,
+        makeupItemColours: res.data.product_colors
       });
-    
+
       //(e.g. price, link to purchase, color values, photo, original rating, would repurchase/wouldn’t repurchase rating)
       // console.log(makeupArray);
     });
   }
 
-
+  displayColours = (event) => {
+    event.preventDefault();
+    this.setState({
+      showColours: true
+    },
+    () => {document.addEventListener('click', this.hideColours)});
+  }
+  // This function is setting the state of showColours to false on click; this will remove the colour names
+  hideColours = () => {
+    this.setState({
+      showColours: false
+    },
+    () => {document.removeEventListener('click', this.hideColours)});
+  }
 
   render() {
-    const {image_link, name, price_sign, price, currency, description } = this.state.makeupItem;
-    console.log(this.props)
-    return(
-      <div className="moreInfo">
-        <div className="image">
-          <img src={image_link}/>
-        </div>
+    const {
+      image_link,
+      name,
+      price_sign,
+      price,
+      currency,
+      description,
+    } = this.state.makeupItem;
+    console.log(this.props);
+    return (
+      <div className="moreInfo wrapper">
+        <div className="contentContainer">
+          <div className="image">
+            <img src={image_link} alt={name} />
+          </div>
 
-        <div className="description">
-          <h1>{name}</h1>
-          <h2>{price_sign, price, currency}</h2>
-          <p>{description}</p>
+          <div className="textContainer">
+            <h1>{name}</h1>
+            <div className="priceContainer">
+              <h2>{price_sign}</h2>
+              <h2>{price}</h2>
+              <h2>{currency}</h2>
+            </div>
+            <p>{description}</p>
+            <button className="colourButton" onClick={this.displayColours}>
+              See available colours
+            </button>
+          <div className="colourMenuContainer">
+          {/* A ternary condition that checks the state of showColours. The button above toggles the state from true to false. When true it will show the colour names of the makeupItem and on false it will remove the items from the screen */}
+            {
+              this.state.showColours
+                ?
+                (
+                  this.state.makeupItemColours.map((color) => {
+                    return (
+                      <div className="swatch">
+                        <ul>
+                          <li><span>{color.colour_name}</span></li>
+                        </ul>
+                      </div>
+                    );
+                  })
+                )
+                : (
+                  null
+                )
+            }
+          </div>
+          </div>
+          
         </div>
-        <Link to = {"/"}>
-          <button onClick={this.backButton}>Search another item</button>
-        </Link>
+        <div className="bottomContainer">
+          <ReviewForm itemId={this.state.makeupId} />
+          <Link to={"/"}>
+            <button className="anotherItem" onClick={this.backButton}>Search another item</button>
+          </Link>
+        </div>
       </div>
-    )
+    );
   }
 }
 
 export default MakeupDetails;
-

@@ -1,0 +1,51 @@
+/**********************/
+/* Review Form Styles */ 
+/**********************/
+
+.reviewContainer {
+  display: flex; 
+  flex-direction: column;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+  
+  .nameForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    margin-bottom: 10px;
+  }
+
+  .reviewForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+
+  }
+
+  input, 
+  textarea {
+    padding: 10px; 
+    width: 100%;
+    border-color: $color2;
+}
+
+input:focus,
+textarea:focus {
+    border-color: $color1; 
+}
+
+  ::placeholder {
+    letter-spacing: 1.5px;
+  }
+
+  button {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+}
+

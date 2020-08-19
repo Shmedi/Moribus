@@ -1,35 +1,41 @@
 import React, { Component } from "react";
-import firebase from "./firebase";
-import axios from "axios";
-import Catalogue from './Catalogue';
-import MakeupDetails from './MakeupDetails';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-
+import DemoCarousel from "./Carousel";
+import NavBar from "./NavBar";
+// import Shop from "./Shop";
+import Catalogue from "./Catalogue";
+import MakeupDetails from "./MakeupDetails";
+import Footer from "./Footer";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
-    console.log("Rendering...");
     return (
-      <Router>
-        <div className="App">
-          
+      <Router basename={process.env.PUBLIC_URL}>
+        <div className="app">
           <header>
-            <h1>Moribus</h1>
+            <div className="nav">
+              <div className="wrapper">
+                {/* <NavBar /> */}
+                <Route path="/" component={NavBar} />
+              </div>
+            </div>
+            <div className="banner wrapper">
+              <Route exact path="/" component={DemoCarousel} />
+              {/* <DemoCarousel /> */}
+            </div>
           </header>
 
-          <Route exact path="/" component={ Catalogue } />
-          <Route exact path="/MakeupDetails/:makeupId" component={ MakeupDetails } /> 
+          <Route exact path="/" component={Catalogue} />
+          {/* <Catalogue /> */}
+          <Route
+            exact
+            path="/MakeupDetails/:makeupId"
+            component={MakeupDetails}
+          />
 
-
-            <footer> 
-              <div>
-                <p>Copyright &copy; 2020 Moribus</p>
-                <p>Created @ <a href="https://junocollege.com/" target="_blank">Juno College</a></p> 
-              </div>
-          </footer>
+          <Footer />
         </div>
-      </Router> 
+      </Router>
     );
   }
 }

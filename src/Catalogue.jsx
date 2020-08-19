@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import MakeupDetails from './MakeupDetails';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Catalogue extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       makeupItems: [],
       filteredMakeupItems: [],
-      getDetail: ''
-    }
+    };
   }
 
   componentDidMount() {
@@ -26,16 +24,16 @@ class Catalogue extends Component {
         product_type: this.state.itemSearch,
       },
     }).then((res) => {
-      console.log(res)
-      const AllData = res.data
-      console.log(AllData)
+      // console.log(res);
+      const AllData = res.data;
+      // console.log(AllData);
       this.setState({
-        makeupItems: AllData
-      })
-      console.log(res.data[0].id)
+        makeupItems: AllData,
+      });
+      // console.log(res.data[0].id);
       //(e.g. price, link to purchase, color values, photo, original rating, would repurchase/wouldn’t repurchase rating)
       // console.log(makeupArray);
-    })
+    });
   }
 
   inputSearch = (event) => {
@@ -47,80 +45,68 @@ class Catalogue extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-
-    const filteredData = this.state.makeupItems.filter((items) => {
-      return items.product_type == this.state.itemSearch;
-    });
-    this.setState({
-      filteredMakeupItems: filteredData
-    });
+    if (this.state.itemSearch === "") {
+      alert("Please enter a product");
+    } else {
+      const productName = this.state.itemSearch;
+      const lowercase = productName.toLowerCase();
+      const finalSearch = lowercase.replace(/\s/g, "_");
+      const filteredData = this.state.makeupItems.filter((items) => {
+        return items.product_type === finalSearch;
+      });
+      if (filteredData.length > 0) {
+        this.setState({
+          filteredMakeupItems: filteredData,
+          itemSearch: "",
+        });
+      } else {
+        alert("Product not found. Please try again");
+      }
+    }
   };
 
-  // Get back from details to main Catalogue 
-
-  // backToCatalogue = () => {
-  //   this.setState({
-  //     filteredMakeupItems: []
-  //   })
-  // }
-  // backButton = () => {
-  //   const backButton = this.state.back
-  //   this.setState(
-  //     { back: !backButton }
-  //   )
-  // }
-
-
-
-render() {
-console.log("filtered makeup", this.state.filteredMakeupItems)
-  return (
-    <div className="allItems">
-      <form action="">
-        <label htmlFor="item">Enter in a product name</label>
-        <br />
-        <input
-          onChange={this.inputSearch}
-          type="textarea"
-          id="item"
-          value={this.state.itemSearch}
-        />
-        <br />
-        <button onClick={this.handleClick}>Search</button>
-      </form> 
-        {
-          this.state.makeupItems.map( (product) => {
-            return ( 
-              <div key={product.id} className="makeup">
-              {this.state.filteredMakeupItems.map((product) => {
-                return (
-                <div>
+  render() {
+    // console.log("filtered makeup", this.state.filteredMakeupItems);
+    return (
+      <div className="allItems wrapper">
+        <form className="shopSearch" action="">
+          <label htmlFor="item">Enter in a product name</label>
+          <input
+            onChange={this.inputSearch}
+            type="textarea"
+            id="item"
+            value={this.state.itemSearch}
+          />
+          <button onClick={this.handleClick}>Search</button>
+        </form>
+        <div className="makeup">
+          {this.state.filteredMakeupItems.map((product) => {
+            return (
+              <div className="productPage">
+                <div className="productItem">
                   <h2>{product.name}</h2>
-                  {/* <p>{product.price_sign} {product.price} {product.currency}</p>
-                  <p>{product.product_link}</p>
-                  <p>{product.description}</p> */}
                   <Link to={`/makeupDetails/${product.id}`}>
                     <img src={product.image_link} alt={`${product.name}`} />
                   </Link>
-                  <Route exact path="/Catalogue" component={ Catalogue } />
-                    {/* backToCatalogue={() => this.backToCatalogue()} */}
-                  {/* {this.state.back 
+                </div>
+                {/* <Route exact path="/Catalogue" component={Catalogue} /> */}
+                {/* <p>{product.price_sign} {product.price} {product.currency}</p>
+                  <p>{product.product_link}</p>
+                  <p>{product.description}</p> */}
+                {/* backToCatalogue={() => this.backToCatalogue()} */}
+                {/* {this.state.back 
                   ? <MakeupDetails backButton={ () => this.backButton() }/> 
                   : <Catalogue backButton={ () => this.backButton() }/> 
                 } */}
-                    {/* <p>{product.product_type}</p> */}
-                    {/* <p>{product.tag_list[0]}</p> */}
-                  </div>
-                ); 
-              })
-            }
-          </div>
-          )
-        })
-      }
-    </div>
-      )
-    }
+                {/* <p>{product.product_type}</p> */}
+                {/* <p>{product.tag_list[0]}</p> */}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
   }
+}
 
 export default Catalogue;

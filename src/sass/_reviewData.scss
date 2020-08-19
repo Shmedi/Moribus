@@ -1,0 +1,40 @@
+/**********************/
+/* Review Data Styles */ 
+/***********************/
+
+.review {
+  display: flex;
+  flex-direction: column;
+
+  .reviewDataContent {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+
+    .reviewedBy {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .comment {
+      display: flex;
+      justify-content: start;
+      margin-left: 30px;
+      border: 2px solid red;
+    }
+  }
+
+  h4 { 
+    padding-right: 5px;
+  }
+
+  h4:nth-child(2) {
+    font-weight: normal;
+    margin-right: 20px;
+  }
+
+  p {
+    font-style: italic;
+  }
+}
+
