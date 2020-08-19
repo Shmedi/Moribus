@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import reviewData from "./reviewData";
+import ReviewData from "./reviewData";
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -94,7 +94,7 @@ class ReviewForm extends Component {
           <button onClick={this.handleClick}>Submit</button>
         </form>
 
-        <reviewData
+        <ReviewData
           comments={this.state.reviews}
           productId={this.props.itemId}
         />
