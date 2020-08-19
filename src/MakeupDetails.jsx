@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReviewForm from "./ReviewForm";
+import { Link } from "react-router-dom";
 
 class MakeupDetails extends Component {
   constructor() {
@@ -42,7 +43,7 @@ class MakeupDetails extends Component {
     return (
       <div className="moreInfo">
         <div className="image">
-          <img src={image_link} />
+          <img src={image_link} alt={name} />
         </div>
 
         <div className="description">
@@ -52,6 +53,9 @@ class MakeupDetails extends Component {
         </div>
 
         <ReviewForm itemId={this.state.makeupId} />
+        <Link to={"/"}>
+          <button onClick={this.backButton}>Search another item</button>
+        </Link>
       </div>
     );
   }

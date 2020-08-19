@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "./firebase";
-import ReviewData from "./ReviewData";
+import ReviewData from "./reviewData";
 
 class ReviewForm extends Component {
   constructor(props) {
@@ -47,16 +47,19 @@ class ReviewForm extends Component {
     console.log(this.props);
     const dbRef = firebase.database().ref();
 
-    dbRef.push({
-      id: this.props.itemId,
-      name: this.state.name,
-      comment: this.state.comment,
-    });
-
-    this.setState({
-      name: "",
-      comment: "",
-    });
+    if (this.state.name && this.state.comment > 0) {
+      dbRef.push({
+        id: this.props.itemId,
+        name: this.state.name,
+        comment: this.state.comment,
+      });
+      this.setState({
+        name: "",
+        comment: "",
+      });
+    } else {
+      alert("Please fill all forms!");
+    }
   };
 
   render() {
