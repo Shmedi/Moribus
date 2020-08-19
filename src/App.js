@@ -13,9 +13,9 @@ class App extends Component {
       <Router basename={process.env.PUBLIC_URL}>
         <div className="app">
           <header>
-            {/* <NavBar /> */}
             <div className="nav">
               <div className="wrapper">
+                {/* <NavBar /> */}
                 <Route path="/" component={NavBar} />
               </div>
             </div>
@@ -24,9 +24,9 @@ class App extends Component {
               {/* <DemoCarousel /> */}
             </div>
           </header>
-          {/* <Route path="/shop" component={Shop} /> */}
 
           <Route exact path="/" component={Catalogue} />
+          {/* <Catalogue /> */}
           <Route
             exact
             path="/MakeupDetails/:makeupId"
