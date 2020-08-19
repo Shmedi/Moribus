@@ -16,7 +16,7 @@ class Catalogue extends Component {
     console.log("Mounted");
 
     axios({
-      url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+      url: "https://makeup-api.herokuapp.com/api/v1/products.json",
       method: "GET",
       dataType: "json",
       params: {

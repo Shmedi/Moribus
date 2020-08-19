@@ -16,7 +16,7 @@ class MakeupDetails extends Component {
     const { makeupId } = this.props.match.params;
     console.log(makeupId);
     axios({
-      url: `http://makeup-api.herokuapp.com/api/v1/products/${makeupId}.json`,
+      url: `https://makeup-api.herokuapp.com/api/v1/products/${makeupId}.json`,
       method: "GET",
     }).then((res) => {
       console.log(res.data);
