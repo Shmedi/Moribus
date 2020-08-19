@@ -1,49 +1,31 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
-    constructor() {
-        super();
-        this.state = {
-            makeupItems: [],
-            itemSearch: "",
-            filteredMakeupItems: [],
-        };
-
-    }
-
-
-
-    componentDidMount() {
-        console.log("Mounted");
-    }
-
-    render() {
-        console.log("Rendering...");
-        return (
-            <React.Fragment>
-                <div className="headerNav">
-                    <nav className="navbar">
-                        <Link to={`/#`}><h1>Moribus</h1></Link>
-
-                        <ul>
-
-                            <li>
-                                <Link to={`/shop`}>Shop</Link>
-                            </li>
-                            <li>
-                                <Link to={`/#`}>Contact</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav className="cart">
-                        <Link to={`/#`}>Cart</Link>
-                    </nav>
-                </div>
-
-            </React.Fragment>
-        );
-    }
+  render() {
+    console.log("Rendering...");
+    return (
+      <div className="headerNav">
+        <h1>Moribus</h1>
+        <nav className="navbar">
+          <ul>
+            <li>
+              <Link to={`/`}>Home</Link>
+            </li>
+            <li>
+              <Link to={`/catalogue`}>Shop</Link>
+            </li>
+            <li>
+              <Link to={`/`}>Wish List</Link>
+            </li>
+            <li>
+              <Link to={`/`}>Sign in</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    );
+  }
 }
 
 export default NavBar;

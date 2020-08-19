@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Catalogue extends Component {
   constructor() {
@@ -47,7 +47,7 @@ class Catalogue extends Component {
     event.preventDefault();
 
     const filteredData = this.state.makeupItems.filter((items) => {
-      return items.product_type == this.state.itemSearch;
+      return items.product_type === this.state.itemSearch;
     });
     this.setState({
       filteredMakeupItems: filteredData,
@@ -55,19 +55,17 @@ class Catalogue extends Component {
   };
 
   render() {
-    console.log("filtered makeup", this.state.filteredMakeupItems);
+    // console.log("filtered makeup", this.state.filteredMakeupItems);
     return (
-      <div className="allItems">
+      <div className="allItems wrapper">
         <form action="">
           <label htmlFor="item">Enter in a product name</label>
-          <br />
           <input
             onChange={this.inputSearch}
             type="textarea"
             id="item"
             value={this.state.itemSearch}
           />
-          <br />
 
           <button onClick={this.handleClick}>Search</button>
         </form>
@@ -76,15 +74,17 @@ class Catalogue extends Component {
             <div key={product.id} className="makeup">
               {this.state.filteredMakeupItems.map((product) => {
                 return (
-                  <div>
-                    <h2>{product.name}</h2>
+                  <div className="productPage">
+                    <div className="productItem">
+                      <h2>{product.name}</h2>
+                      <Link to={`/makeupDetails/${product.id}`}>
+                        <img src={product.image_link} alt={`${product.name}`} />
+                      </Link>
+                    </div>
+                    {/* <Route exact path="/Catalogue" component={Catalogue} /> */}
                     {/* <p>{product.price_sign} {product.price} {product.currency}</p>
                   <p>{product.product_link}</p>
                   <p>{product.description}</p> */}
-                    <Link to={`/makeupDetails/${product.id}`}>
-                      <img src={product.image_link} alt={`${product.name}`} />
-                    </Link>
-                    <Route exact path="/Catalogue" component={Catalogue} />
                     {/* backToCatalogue={() => this.backToCatalogue()} */}
                     {/* {this.state.back 
                   ? <MakeupDetails backButton={ () => this.backButton() }/> 

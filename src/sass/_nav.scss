@@ -1,56 +1,17 @@
-header {
-    background-color: $color3;
-    border: 2px solid $color2;
-    box-shadow: 4px 4px 4px #aaa;
-}
-
-.navbar {
-    margin: 5rem auto;
-}
-
-.headerNav,
-.navbar {
-    display: flex;
-    padding: 2.5% 5%;
-}
-
-.navbar ul {
-    display: flex;
-    align-items: center;
-}
-
-.navbar li {
-    color: $color5;
-    font-size: 2.5rem;
-    margin: 5rem;
-}
-
-h1 {
-    color: $color4;
-    text-shadow: 2px 2px 2px $color2;
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  h1 {
+    font-family: $headerFont;
     font-size: 8rem;
-    padding-right: 5rem;
-}
-
-h1:hover,
-h1:active,
-h1:focus {
-    text-shadow: 4px 4px 4px #fff;
-}
-
-.cart {
-    margin-top: 5rem;
-    font-size: 2rem;
-}
-
-.navbar li:hover,
-.navbar li:active,
-.navbar li:focus{
-    border-bottom: 2px solid $color2;
-}
-
-.cart:hover,
-.cart:active,
-.cart:focus {
-    text-decoration: underline overline;
+  }
+  ul {
+    display: flex;
+    margin-top: 50px;
+    li {
+      font-size: 2rem;
+      margin-left: 45px;
+    }
+  }
 }

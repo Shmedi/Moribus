@@ -43,7 +43,7 @@ class MakeupDetails extends Component {
     return (
       <div className="moreInfo">
         <div className="image">
-          <img src={image_link} />
+          <img src={image_link} alt={name} />
         </div>
 
         <div className="description">

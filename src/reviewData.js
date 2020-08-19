@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewData = (props) => {
+const reviewData = (props) => {
   return (
     <ul>
       {props.comments.map((review) => {
@@ -11,10 +11,10 @@ const ReviewData = (props) => {
               <p>{review.value}</p>
             </li>
           );
-        } else return;
+        } else return null;
       })}
     </ul>
   );
 };
 
-export default ReviewData;
+export default reviewData;
