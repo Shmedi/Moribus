@@ -17,16 +17,10 @@ a,
 Link {
   list-style: none;
   text-decoration: none;
-  color: $fontColor;
+  color: $baseColor;
 }
 
 body {
   font-family: $baseFont;
-}
-
-.allItems {
-  form {
-    text-align: center;
-    margin-top: 400px;
-  }
+  font-size: 1.6rem;
 }

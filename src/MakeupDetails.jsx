@@ -48,7 +48,11 @@ class MakeupDetails extends Component {
 
         <div className="description">
           <h1>{name}</h1>
-          <h2>{(price_sign, price, currency)}</h2>
+          <div className="priceContainer">
+            <h2>{price_sign}</h2>
+            <h2>{price}</h2>
+            <h2>{currency}</h2>
+          </div>
           <p>{description}</p>
         </div>
 

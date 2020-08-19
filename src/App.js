@@ -12,18 +12,21 @@ class App extends Component {
     return (
       <Router>
         <div className="app">
-          <header className="headerMain">
-            <div className="wrapper">
-              <NavBar />
-              {/* <Route path="/" component={NavBar} /> */}
-              <div className="banner">
-                <DemoCarousel />
+          <header>
+            {/* <NavBar /> */}
+            <div className="nav">
+              <div className="wrapper">
+                <Route path="/" component={NavBar} />
               </div>
+            </div>
+            <div className="banner wrapper">
+              <Route exact path="/" component={DemoCarousel} />
+              {/* <DemoCarousel /> */}
             </div>
           </header>
           {/* <Route path="/shop" component={Shop} /> */}
 
-          <Route exact path="/catalogue" component={Catalogue} />
+          <Route exact path="/" component={Catalogue} />
           <Route
             exact
             path="/MakeupDetails/:makeupId"
