@@ -53,3 +53,4 @@ class MakeupDetails extends Component {
 }
 
 export default MakeupDetails;
+
