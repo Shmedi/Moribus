@@ -28,8 +28,6 @@ class ReviewForm extends Component {
         });
       }
 
-      console.log(firebaseData);
-
       this.setState({
         reviews: userReview,
       });
@@ -44,7 +42,6 @@ class ReviewForm extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    console.log(this.props);
     const dbRef = firebase.database().ref();
     if (this.state.name && this.state.comment !== "") {
       dbRef.push({
@@ -67,7 +64,7 @@ class ReviewForm extends Component {
         <h3>Write your review below</h3>
         <form action="">
           <div className="nameForm">
-            <label htmlFor="userName" class="sr-only"></label>
+            <label htmlFor="userName" class="srOnly"></label>
             <input
               onChange={this.handleChange}
               type="text"
@@ -80,7 +77,7 @@ class ReviewForm extends Component {
           </div>
 
           <div className="reviewForm">
-            <label htmlFor="comment" class="sr-only"></label>
+            <label htmlFor="comment" class="srOnly"></label>
             <textarea
               onChange={this.handleChange}
               name="comment"

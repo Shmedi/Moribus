@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Catalogue extends Component {
   constructor() {
@@ -13,8 +12,6 @@ class Catalogue extends Component {
   }
 
   componentDidMount() {
-    console.log("Mounted");
-
     axios({
       url: "https://makeup-api.herokuapp.com/api/v1/products.json",
       method: "GET",
@@ -24,15 +21,11 @@ class Catalogue extends Component {
         product_type: this.state.itemSearch,
       },
     }).then((res) => {
-      // console.log(res);
       const AllData = res.data;
-      // console.log(AllData);
       this.setState({
         makeupItems: AllData,
       });
-      // console.log(res.data[0].id);
       //(e.g. price, link to purchase, color values, photo, original rating, would repurchase/wouldn’t repurchase rating)
-      // console.log(makeupArray);
     });
   }
 
@@ -66,7 +59,6 @@ class Catalogue extends Component {
   };
 
   render() {
-    // console.log("filtered makeup", this.state.filteredMakeupItems);
     return (
       <div className="allItems wrapper">
         <form className="shopSearch" action="">

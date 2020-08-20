@@ -1,0 +1,90 @@
+@media (max-width: 830px) {
+  .headerNav {
+    display: block;
+    ul {
+      margin-top: 10px;
+      li {
+        margin: 0 25px 0 0;
+      }
+    }
+  }
+
+  .nav {
+    padding-bottom: 200px;
+  }
+
+  .banner,
+  .moreInfo {
+    margin-top: -180px;
+  }
+}
+
+@media (max-width: 714px) {
+  .shopSearch {
+    input {
+      width: 50%;
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+  .makeup {
+    .productPage {
+      width: 100%;
+    }
+  }
+
+  .moreInfo {
+    height: 200vh;
+    padding: 15px;
+    .contentContainer {
+      display: block;
+    }
+
+    .image {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .headerNav {
+    h1 {
+      font-size: 5rem;
+    }
+
+    ul {
+      li {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .nav {
+    padding-bottom: 120px;
+  }
+
+  .banner,
+  .moreInfo {
+    margin-top: -100px;
+  }
+
+  .moreInfo {
+    .bottomContainer {
+      display: block;
+    }
+  }
+
+  .shopSearch {
+    input,
+    button {
+      width: 100%;
+    }
+  }
+
+  .review {
+    .reviewDataContent {
+      display: block;
+    }
+  }
+}

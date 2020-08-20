@@ -22,4 +22,3 @@ const reviewData = (props) => {
   );
 };
 export default reviewData;
-
