@@ -2,13 +2,18 @@ import React from "react";
 
 const reviewData = (props) => {
   return (
-    <ul>
+    <ul className="review">
       {props.comments.map((review, index) => {
         if (review.id === props.productId) {
           return (
-            <li key={index}>
-              <h4>{review.name}</h4>
-              <p>{review.value}</p>
+            <li className="reviewDataContent" key={index}>
+              <div className="reviewedBy">
+                <h4>Reviewed by:</h4>
+                <h4>{review.name}</h4>
+              </div>
+              <div className="comment">
+                <p>{review.value}</p>
+              </div>
             </li>
           );
         } else return null;
@@ -16,5 +21,5 @@ const reviewData = (props) => {
     </ul>
   );
 };
-
 export default reviewData;
+

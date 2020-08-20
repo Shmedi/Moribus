@@ -7,15 +7,6 @@
     margin: 0 25px;
     border-color: $color2;
   }
-
-  button {
-    @include buttonStyle;
-    &hover,
-    &active,
-    &focus {
-      transform: scale(1.3);
-    }
-  }
 }
 
 .makeup {
