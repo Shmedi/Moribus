@@ -8,7 +8,7 @@ import image4 from "./images/bannerImg4.jpg";
 import image5 from "./images/bannerImg5.jpg";
 
 export default () => (
-  <Carousel autoPlay>
+  <Carousel autoPlay infiniteLoop stopOnHover dynamicHeight swipeable>
     <div>
       <img alt="" src={image1} />
     </div>
