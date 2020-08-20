@@ -3,20 +3,25 @@ import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   render() {
-    console.log("Rendering...");
     return (
       <div className="headerNav">
-        <h1>Moribus</h1>
+        <h1 className="expand">Moribus</h1>
         <nav className="navbar">
           <ul>
             <li>
-              <Link to={`/`}>Home</Link>
+              <Link className="navLinks" to={`/`}>
+                <span>Home</span>
+              </Link>
             </li>
             <li>
-              <Link to={`/`}>Wish List</Link>
+              <Link className="navLinks" to={`/`}>
+                Wish List
+              </Link>
             </li>
             <li>
-              <Link to={`/`}>Sign in</Link>
+              <Link className="navLinks" to={`/`}>
+                Sign in
+              </Link>
             </li>
           </ul>
         </nav>

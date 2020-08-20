@@ -5,6 +5,7 @@
   h1 {
     font-family: $headerFont;
     font-size: 8rem;
+    text-shadow: 2px 2px 1px $color1;
   }
   ul {
     display: flex;
@@ -12,6 +13,13 @@
     li {
       font-size: 2rem;
       margin-left: 45px;
+    }
+
+    .navLinks {
+      transition: all 0.3s;
+      &:hover {
+        color: $color1;
+      }
     }
   }
 }

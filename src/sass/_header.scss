@@ -1,11 +1,12 @@
 .nav {
   background-color: $color3;
+  border-bottom: 20px solid $color2;
   padding-bottom: 400px;
 }
 
 .banner {
   text-align: center;
-  margin-top: -370px;
+  margin-top: -380px;
   .carousel-status {
     display: none;
   }
