@@ -10,7 +10,7 @@ class NavBar extends Component {
           <ul>
             <li>
               <Link className="navLinks" to={`/`}>
-                <span>Home</span>
+                <span className="highlight">Home</span>
               </Link>
             </li>
             <li>

@@ -89,17 +89,6 @@ class Catalogue extends Component {
                     <img src={product.image_link} alt={`${product.name}`} />
                   </Link>
                 </div>
-                {/* <Route exact path="/Catalogue" component={Catalogue} /> */}
-                {/* <p>{product.price_sign} {product.price} {product.currency}</p>
-                  <p>{product.product_link}</p>
-                  <p>{product.description}</p> */}
-                {/* backToCatalogue={() => this.backToCatalogue()} */}
-                {/* {this.state.back 
-                  ? <MakeupDetails backButton={ () => this.backButton() }/> 
-                  : <Catalogue backButton={ () => this.backButton() }/> 
-                } */}
-                {/* <p>{product.product_type}</p> */}
-                {/* <p>{product.tag_list[0]}</p> */}
               </div>
             );
           })}

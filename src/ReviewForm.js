@@ -46,7 +46,6 @@ class ReviewForm extends Component {
     event.preventDefault();
     console.log(this.props);
     const dbRef = firebase.database().ref();
-
     if (this.state.name && this.state.comment !== "") {
       dbRef.push({
         id: this.props.itemId,
@@ -64,10 +63,11 @@ class ReviewForm extends Component {
 
   render() {
     return (
-      <>
+      <div className="reviewContainer">
+        <h3>Write your review below</h3>
         <form action="">
-          <div>
-            <label htmlFor="userName">Name</label>
+          <div className="nameForm">
+            <label htmlFor="userName" class="sr-only"></label>
             <input
               onChange={this.handleChange}
               type="text"
@@ -79,8 +79,8 @@ class ReviewForm extends Component {
             />
           </div>
 
-          <div>
-            <label htmlFor="comment">Comment</label>
+          <div className="reviewForm">
+            <label htmlFor="comment" class="sr-only"></label>
             <textarea
               onChange={this.handleChange}
               name="comment"
@@ -88,6 +88,7 @@ class ReviewForm extends Component {
               value={this.state.comment}
               placeholder="Write your review..."
               maxLength="300"
+              width="100%"
             ></textarea>
           </div>
 
@@ -98,7 +99,7 @@ class ReviewForm extends Component {
           comments={this.state.reviews}
           productId={this.props.itemId}
         />
-      </>
+      </div>
     );
   }
 }

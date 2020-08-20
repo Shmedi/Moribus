@@ -7,16 +7,6 @@
     margin: 0 25px;
     border-color: $color2;
   }
-
-  button {
-    @include buttonStyle;
-    transition: all 0.3s;
-    &:hover,
-    &:active,
-    &:focus {
-      transform: scale(1.1);
-    }
-  }
 }
 
 .makeup {
