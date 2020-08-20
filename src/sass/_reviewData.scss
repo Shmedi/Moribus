@@ -5,21 +5,18 @@
 .review {
   display: flex;
   flex-direction: column;
-
   .reviewDataContent {
-    display: flex;
-    flex-direction: row;
     padding: 5px;
-
+    width: 100%;
     .reviewedBy {
       display: flex;
       flex-direction: row;
+      width: 30%;
     }
-
     .comment {
       display: flex;
-      justify-content: start;
-      margin-left: 30px;
+      align-items: flex-start;
+      width: 80%;
     }
   }
 
@@ -34,5 +31,6 @@
 
   p {
     font-style: italic;
+    margin: 5px 0 15px 0;
   }
 }

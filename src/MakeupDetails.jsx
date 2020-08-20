@@ -58,6 +58,7 @@ class MakeupDetails extends Component {
       image_link,
       name,
       price_sign,
+      product_link,
       price,
       currency,
       description,
@@ -76,6 +77,9 @@ class MakeupDetails extends Component {
               <h2>{price}</h2>
               <h2>{currency}</h2>
             </div>
+            <a className="buyButton highlight" href={product_link}>
+              Buy Me!
+            </a>
             <p>{description}</p>
             <button className="colourButton" onClick={this.displayColours}>
               See available colours

@@ -17,7 +17,9 @@
 
     .navLinks {
       transition: all 0.3s;
-      &:hover {
+      &:hover,
+      &:active,
+      &:focus {
         color: $color1;
       }
     }
