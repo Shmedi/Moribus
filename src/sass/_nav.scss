@@ -1,15 +1,31 @@
 .headerNav {
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
-  h1 {
-    font-family: $headerFont;
-    font-size: 8rem;
-    text-shadow: 2px 2px 1px $color1;
+  align-items: center;
+  padding-top: 30px;
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    h1 {
+      font-family: $headerFont;
+      font-size: 8rem;
+      text-shadow: 2px 2px 1px $color1;
+      padding-right: 40px;
+    }
+
+    p {
+      color: $color1;
+      font-size: 3rem;
+      font-family: $baseFont;
+      font-weight: 400;
+      text-shadow: none;
+      text-transform: uppercase;
+      padding-top: 10px;
+    }
   }
+
   ul {
     display: flex;
-    margin-top: 35px;
     li {
       font-size: 2rem;
       margin-left: 45px;
