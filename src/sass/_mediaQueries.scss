@@ -1,4 +1,4 @@
-@media (max-width: 830px) {
+@media (max-width: 1218px) {
   .headerNav {
     display: block;
     ul {
@@ -8,7 +8,9 @@
       }
     }
   }
+}
 
+@media (max-width: 830px) {
   .nav {
     padding-bottom: 200px;
   }
@@ -20,6 +22,19 @@
 }
 
 @media (max-width: 714px) {
+  .headerNav .titleContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    h1 {
+      font-size: 6rem;
+    }
+
+    p {
+      font-size: 2.1rem;
+      padding: 0;
+    }
+  }
+
   .shopSearch {
     input {
       width: 50%;
@@ -80,5 +95,10 @@
     button {
       width: 100%;
     }
+  }
+
+  footer .footerContainer {
+    flex-direction: column;
+    align-items: center;
   }
 }
