@@ -19,6 +19,13 @@
   .moreInfo {
     margin-top: -180px;
   }
+
+  .reviewContainer {
+    .nameForm,
+    .reviewForm {
+      width: 90%;
+    }
+  }
 }
 
 @media (max-width: 714px) {
@@ -50,7 +57,6 @@
   }
 
   .moreInfo {
-    height: 200vh;
     padding: 15px;
     .contentContainer {
       display: block;
@@ -86,13 +92,23 @@
 
   .moreInfo {
     .bottomContainer {
-      display: block;
+      flex-direction: column-reverse;
+      .anotherItem {
+        margin-bottom: 20px;
+      }
     }
   }
 
   .shopSearch {
     input,
     button {
+      width: 100%;
+    }
+  }
+
+  .reviewContainer {
+    .nameForm,
+    .reviewForm {
       width: 100%;
     }
   }
