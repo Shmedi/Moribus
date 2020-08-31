@@ -16,16 +16,6 @@ class NavBar extends Component {
                 <span className="highlight">Home</span>
               </Link>
             </li>
-            <li>
-              <Link className="navLinks" to={`/`}>
-                Wish List
-              </Link>
-            </li>
-            <li>
-              <Link className="navLinks" to={`/`}>
-                Sign in
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>

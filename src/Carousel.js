@@ -10,19 +10,25 @@ import image5 from "./images/bannerImg5.jpg";
 export default () => (
   <Carousel autoPlay infiniteLoop stopOnHover dynamicHeight swipeable>
     <div>
-      <img alt="" src={image1} />
+      <img alt="Makeup brush picking up eyeshadow product" src={image1} />
     </div>
     <div>
-      <img alt="" src={image2} />
+      <img
+        alt="Multiple makeup brushes in a tin, surrounded by products"
+        src={image2}
+      />
     </div>
     <div>
-      <img alt="" src={image3} />
+      <img alt="Makeup palette with two eyeshadow tins on top" src={image3} />
     </div>
     <div>
-      <img alt="" src={image4} />
+      <img alt="Mirror palette with eyeshadow colors" src={image4} />
     </div>
     <div>
-      <img alt="" src={image5} />
+      <img
+        alt="Three makeup foundation tins in a triangle with two tins open"
+        src={image5}
+      />
     </div>
   </Carousel>
 );

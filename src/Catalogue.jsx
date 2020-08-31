@@ -67,6 +67,7 @@ class Catalogue extends Component {
             onChange={this.inputSearch}
             type="textarea"
             id="item"
+            placeholder="eg.lipstick, eyeshadow"
             value={this.state.itemSearch}
           />
           <button onClick={this.handleClick}>Search</button>

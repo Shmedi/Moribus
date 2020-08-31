@@ -9,7 +9,11 @@
   input {
     width: 30%;
     margin: 0 25px;
+    padding: 3px;
     border-color: $color2;
+    &::placeholder {
+      opacity: 0.2;
+    }
   }
 }
 
